@@ -16,10 +16,6 @@ export default function Home() {
     loadItems();
   }, []);
 
-  useEffect(() => {
-    console.log(`O código está passando por aqui`);
-  }, [textInput]);
-
   async function loadItems() {
     setLoading(true);
 
