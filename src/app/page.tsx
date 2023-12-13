@@ -5,6 +5,7 @@ import { api } from "../../services/api";
 interface Product {
   id: number;
   nome: string;
+  isEditing: boolean;
 }
 
 export default function Home() {
@@ -32,7 +33,7 @@ export default function Home() {
   }
 
   async function handleAddItem() {
-    const data = { nome: textInput };
+    const data: Omit<Product, "id"> = { nome: textInput, isEditing: false };
 
     try {
       const response = await api.post("/produtos", data);
@@ -43,8 +44,55 @@ export default function Home() {
     }
   }
 
-  function handleDeleteItem(itemId: number) {
+  async function handleDeleteItem(itemId: number) {
     console.log(itemId);
+
+    try {
+      await api.delete(`/produtos/${itemId}`);
+
+      const filteredItems = items.filter((item) => item.id !== itemId);
+      setItems(filteredItems);
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  }
+
+  function handleEditItem(itemId: number) {
+    console.log(itemId);
+
+    const changedItems = items.map((item) => {
+      if (item.id === itemId) {
+        return { ...item, isEditing: true };
+      }
+      return item;
+    });
+
+    setItems(changedItems);
+  }
+
+  function handleUpdateItem(itemId: number) {
+    console.log(itemId);
+    // put
+
+    const changedItems = items.map((item) => {
+      if (item.id === itemId) {
+        return { ...item, isEditing: false };
+      }
+      return item;
+    });
+
+    setItems(changedItems);
+  }
+
+  function handleChangeItem(itemId: number, textValue: string) {
+    const changedItems = items.map((item) => {
+      if (item.id === itemId) {
+        return { ...item, nome: textValue };
+      }
+      return item;
+    });
+
+    setItems(changedItems);
   }
 
   return (
@@ -62,7 +110,21 @@ export default function Home() {
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            {item.nome}
+            {item.isEditing ? (
+              <input
+                onChange={(e) => handleChangeItem(item.id, e.target.value)}
+                value={item.nome}
+              />
+            ) : (
+              item.nome
+            )}
+
+            {item.isEditing ? (
+              <button onClick={() => handleUpdateItem(item.id)}>Save</button>
+            ) : (
+              <button onClick={() => handleEditItem(item.id)}>Edit</button>
+            )}
+
             <button onClick={() => handleDeleteItem(item.id)}>Delete</button>
           </li>
         ))}
