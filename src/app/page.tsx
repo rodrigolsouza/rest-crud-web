@@ -1,13 +1,21 @@
 "use client";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
-import { Button, Skeleton } from "@nextui-org/react";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Skeleton,
+  Image,
+} from "@nextui-org/react";
+
 import { Input } from "@nextui-org/react";
-import Image from "next/image";
 
 interface Product {
   id: number;
-  nome: string;
+  title: string;
+  price: number;
   isEditing: boolean;
 }
 
@@ -38,7 +46,11 @@ export default function Home() {
   }, []);
 
   async function handleAddItem() {
-    const data: Omit<Product, "id"> = { nome: textInput, isEditing: false };
+    const data: Omit<Product, "id"> = {
+      title: textInput,
+      price: 10,
+      isEditing: false,
+    };
 
     try {
       const response = await api.post("/produtos", data);
@@ -91,19 +103,13 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col gap-5 mt-5">
-      <Image
-        alt="Img background"
-        src="/images/img-background.jpg"
-        width={150}
-        height={0}
-      />
-
-      <div className="flex items-center">
+    <div className="px-96 flex flex-col gap-5 mt-5">
+      <div className="flex items-center gap-2">
         <Input
           onChange={(e) => setTextInput(e.target.value)}
           placeholder="Digite o seu texto aqui..."
         />
+
         <Button color="primary" onClick={handleAddItem}>
           Enviar
         </Button>
@@ -125,22 +131,29 @@ export default function Home() {
         </div>
       )}
 
-      <ul>
+      <ul className="grid grid-cols-[repeat(auto-fill, min(200px))]">
         {items.map((item) => (
           <li key={item.id}>
-            {item.isEditing ? (
-              <Input
-                value={item.nome}
-                onChange={(e) => handleChangeItem(item.id, e.target.value)}
-              />
-            ) : (
-              item.nome
-            )}
-
-            <button onClick={() => handleEditItem(item.id)}>
-              {item.isEditing ? "Save" : "Edit"}
-            </button>
-            <button onClick={() => handleDeleteItem(item.id)}>Deletar</button>
+            <Card
+              shadow="sm"
+              isPressable
+              onPress={() => console.log("item pressed")}
+            >
+              <CardBody className="overflow-visible p-0">
+                <Image
+                  shadow="sm"
+                  radius="lg"
+                  width="100%"
+                  alt={item.title}
+                  className="object-cover h-[140px] w-[200px]"
+                  src="https://picsum.photos/400/300"
+                />
+              </CardBody>
+              <CardFooter className="text-small justify-between">
+                <b>{item.title}</b>
+                <p className="text-default-500">{item.price}</p>
+              </CardFooter>
+            </Card>
           </li>
         ))}
       </ul>

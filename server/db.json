@@ -1,83 +1,75 @@
 {
   "produtos": [
     {
-      "nome": "Rinaldo24",
+      "title": "Banana",
+      "price": 10,
       "isEditing": false,
       "id": 1
     },
     {
-      "nome": "ffdfd",
+      "title": "Uva",
+      "price": 10,
       "isEditing": false,
       "id": 2
     },
     {
-<<<<<<< HEAD
-      "nome": "teste",
-=======
-      "nome": "ISaell MANOBRAs",
->>>>>>> develop
+      "title": "Maçã",
+      "price": 80,
       "isEditing": false,
       "id": 3
     },
     {
-<<<<<<< HEAD
-      "nome": "teste",
-=======
-      "nome": "emesson",
->>>>>>> develop
+      "title": "Morango",
+      "price": 10,
       "isEditing": false,
       "id": 4
     },
     {
-<<<<<<< HEAD
-      "nome": "italo",
+      "title": "Goiaba",
+      "price": 10,
       "isEditing": false,
       "id": 5
     },
     {
-      "nome": "augusto",
+      "title": "Laranja",
+      "price": 10,
       "isEditing": false,
       "id": 6
-=======
-      "nome": "marcelo bonds",
+    },
+    {
+      "title": "Limão",
+      "price": 10,
       "isEditing": false,
       "id": 7
     },
     {
-      "nome": "lalala",
+      "title": "Abacaxi",
+      "price": 10,
       "isEditing": false,
       "id": 8
     },
     {
-      "nome": "EVERYONE",
+      "nome": "Propina",
       "isEditing": false,
       "id": 9
     },
     {
-      "nome": "quem é everyone",
+      "title": "uva",
+      "price": 10,
       "isEditing": false,
       "id": 10
     },
     {
-      "nome": "EVERYONE",
+      "title": "Melão",
+      "price": 10,
       "isEditing": false,
       "id": 11
     },
     {
-      "nome": "EVERYONE",
+      "title": "Maracujá",
+      "price": 40,
       "isEditing": false,
       "id": 12
-    },
-    {
-      "nome": "EVERYONE",
-      "isEditing": false,
-      "id": 13
-    },
-    {
-      "nome": "EVERYONE",
-      "isEditing": false,
-      "id": 14
->>>>>>> develop
     }
   ]
 }
