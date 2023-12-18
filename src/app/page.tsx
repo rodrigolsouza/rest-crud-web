@@ -103,7 +103,7 @@ export default function Home() {
   }
 
   return (
-    <div className="px-96 flex flex-col gap-5 mt-5">
+    <div className="px-80 flex flex-col gap-5 mt-5">
       <div className="flex items-center gap-2">
         <Input
           onChange={(e) => setTextInput(e.target.value)}
@@ -131,7 +131,7 @@ export default function Home() {
         </div>
       )}
 
-      <ul className="grid grid-cols-[repeat(auto-fill, min(200px))]">
+      <ul className="gap-6 grid grid-cols-[repeat(auto-fill,min(200px))] justify-between">
         {items.map((item) => (
           <li key={item.id}>
             <Card
