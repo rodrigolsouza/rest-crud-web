@@ -1,21 +1,35 @@
 {
   "produtos": [
     {
-      "nome": "Testando",
+      "nome": "Rinaldo24",
+      "isEditing": false,
+      "id": 1
+    },
+    {
+      "nome": "ffdfd",
       "isEditing": false,
       "id": 2
     },
     {
+<<<<<<< HEAD
       "nome": "teste",
+=======
+      "nome": "ISaell MANOBRAs",
+>>>>>>> develop
       "isEditing": false,
       "id": 3
     },
     {
+<<<<<<< HEAD
       "nome": "teste",
+=======
+      "nome": "emesson",
+>>>>>>> develop
       "isEditing": false,
       "id": 4
     },
     {
+<<<<<<< HEAD
       "nome": "italo",
       "isEditing": false,
       "id": 5
@@ -24,6 +38,46 @@
       "nome": "augusto",
       "isEditing": false,
       "id": 6
+=======
+      "nome": "marcelo bonds",
+      "isEditing": false,
+      "id": 7
+    },
+    {
+      "nome": "lalala",
+      "isEditing": false,
+      "id": 8
+    },
+    {
+      "nome": "EVERYONE",
+      "isEditing": false,
+      "id": 9
+    },
+    {
+      "nome": "quem é everyone",
+      "isEditing": false,
+      "id": 10
+    },
+    {
+      "nome": "EVERYONE",
+      "isEditing": false,
+      "id": 11
+    },
+    {
+      "nome": "EVERYONE",
+      "isEditing": false,
+      "id": 12
+    },
+    {
+      "nome": "EVERYONE",
+      "isEditing": false,
+      "id": 13
+    },
+    {
+      "nome": "EVERYONE",
+      "isEditing": false,
+      "id": 14
+>>>>>>> develop
     }
   ]
 }
