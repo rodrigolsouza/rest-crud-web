@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import {
   Button,
@@ -11,7 +11,8 @@ import {
 } from "@nextui-org/react";
 
 import { Input } from "@nextui-org/react";
-
+import {BsCart3} from "react-icons/bs";
+import { ProductContext } from "@/contexts/ProductContext";
 interface Product {
   id: number;
   title: string;
@@ -23,6 +24,8 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [textInput, setTextInput] = useState("");
   const [items, setItems] = useState<Product[]>([]);
+
+  const numProducts = useContext(ProductContext)
 
   async function loadItems() {
     setLoading(true);
@@ -105,6 +108,7 @@ export default function Home() {
   return (
     <div className="px-80 flex flex-col gap-5 mt-5">
       <div className="flex items-center gap-2">
+        
         <Input
           onChange={(e) => setTextInput(e.target.value)}
           placeholder="Digite o seu texto aqui..."
@@ -114,7 +118,7 @@ export default function Home() {
           Enviar
         </Button>
       </div>
-
+      <p>numero de produtos: {numProducts} </p>
       {/* {loading && <p>Carregando...</p>} */}
 
       {loading && (
@@ -152,6 +156,7 @@ export default function Home() {
               <CardFooter className="text-small justify-between">
                 <b>{item.title}</b>
                 <p className="text-default-500">{item.price}</p>
+                <Button startContent={<BsCart3/>}>Comprar</Button>
               </CardFooter>
             </Card>
           </li>
